@@ -1,0 +1,13 @@
+{
+    "menu":{        
+            "shop": "https://shop.warriors.com/",
+            "...": "#",
+            "mens": "nav-item-https://shop.warriors.com/golden-state-warriors-men/t-14145130+ga-67+z-978556-2897172570",
+            "newsandfeatures": "nav-item-/warriors/news",
+            "news&features": "nav-item-/warriors/news"      
+    },
+    "pages":{
+        "warriors": "/warriors",
+        "bulls": "/bulls"
+    }
+}
