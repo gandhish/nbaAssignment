@@ -2,7 +2,7 @@ import { WarriorsHomePage } from "./warriorshome.page";
 
 export class NewsPage extends WarriorsHomePage {
     gotoVideosSection() {
-        cy.get(':nth-child(3) > .flex-row > .Columns_column__gj3Zd > [data-testid="heading"] > h3').scrollIntoView();
+        cy.get('[data-testid="heading"] > h3').contains('VIDEOS').scrollIntoView();
     }
 
     getVideoCount() {

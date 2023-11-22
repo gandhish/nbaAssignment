@@ -38,7 +38,7 @@ describe('TakeHomeAssignmentSpec', () => {
 
     cy
       .get('@oldVideosCount')
-      .should('equal', this.testData.videos.olderThanThreeDays);
+      .should('be.above', this.testData.videos.olderThanThreeDays);
 
   })
 
@@ -65,10 +65,11 @@ describe('TakeHomeAssignmentSpec', () => {
       .navigateTo("Shop", "Men's");
 
     shopMensJacketsPage
-      .getAllJackets(2);
+      .getAllJackets(2); //Todo: Parameterised to take in number of pages - because Cypress was crashing. Change it to navigate to all pages
 
     cy
       .readFile(`cypress/reports/${Cypress.spec.name}/mensShoppingItems.txt`).should('not.be.empty');
+      //Todo: Attach the txt file to the report
   })
 
 

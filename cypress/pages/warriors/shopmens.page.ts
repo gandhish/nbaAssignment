@@ -21,12 +21,13 @@ export class ShopMensPage extends WarriorsHomePage {
             if ($el.find('span.top-seller-vibrancy-message').length > 0) {
                 texts.push(`Jacket Top Seller Message: ${$el.find('span.top-seller-vibrancy-message').text()}`)
             }
+            //Todo: Do a writeFile in bulk rather than one by one. Cypress was crashing in the latter case
             cy.writeFile(`cypress/reports/${Cypress.spec.name}/mensShoppingItems.txt`, texts, { flag: 'a+' });
             texts = [];
         })
     }
 
-    handlePagination(maxPages: Number) {
+    handlePagination(maxPages?: Number) {
         for (let i = 0; i < maxPages; i++) {
             cy.get('div.pagination-navigation').then($el => {
                 this.getJackets();
@@ -34,6 +35,7 @@ export class ShopMensPage extends WarriorsHomePage {
                 //Is the Next icon available?
                 if ($el.find('.next-page').length > 0) {
                     $el.find('.next-page > a > i').trigger("click");
+                    this.handlePagination();
                 }
             })
         }
